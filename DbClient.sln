@@ -1,0 +1,83 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.31112.23
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "SqlServerClient", "SqlServerClient", "{1312CDF1-A629-46F0-8B67-53837761843B}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".Net Standard", ".Net Standard", "{F985D935-E07F-48F7-B94B-2DC16DB1421C}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "MySqlClient", "MySqlClient", "{EB5AC32B-A975-4217-B627-0772A995C1BE}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".Net Standard", ".Net Standard", "{E402E442-6461-48E7-B433-40C4B82FFAE4}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "_Base", "_Base", "{47DB9348-471C-4D54-954B-4863DFEBFBAB}"
+EndProject
+Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "DbClientCommon", "_Base\DbClientCommon\DbClientCommon.shproj", "{766154B6-6DD9-4B2F-A04E-7957F5C19CA9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MySqlClient", "MySqlClient\.Net Standard\MySqlClient\MySqlClient.csproj", "{943D3743-5E61-4C1C-8DEC-E2C64AAA9154}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "OracleClient", "OracleClient", "{2014F706-98AE-4E47-9E1F-AE8CC5792E60}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".Net Standard", ".Net Standard", "{1D72F064-E17D-4C35-821E-2CB8FEB70ABA}"
+EndProject
+Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "OracleClient", "OracleClient\OracleClient\OracleClient.shproj", "{363A96CA-8868-42F1-ACF6-4C6CC1DDD935}"
+EndProject
+Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "MySqlClient", "MySqlClient\MySqlClient\MySqlClient.shproj", "{C15E578D-2DDA-4498-A7E8-810226605B8A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OracleClient", "OracleClient\.Net Standard\OracleClient\OracleClient.csproj", "{2ED7D045-FE3D-4662-B33E-AF6DA5299A0A}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SqlServerClient", "SqlServerClient\.Net Standard\SqlServerClient\SqlServerClient.csproj", "{B2EAC1D3-9119-49BB-AE88-B268C84F4CC4}"
+EndProject
+Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "SqlServerClient", "SqlServerClient\SqlServerClient\SqlServerClient.shproj", "{95CCE6EE-7C5E-4962-AE7E-DB151EACE53D}"
+EndProject
+Global
+	GlobalSection(SharedMSBuildProjectFiles) = preSolution
+		OracleClient\OracleClient\OracleClient.projitems*{2ed7d045-fe3d-4662-b33e-af6da5299a0a}*SharedItemsImports = 5
+		_Base\DbClientCommon\DbClientCommon.projitems*{2ed7d045-fe3d-4662-b33e-af6da5299a0a}*SharedItemsImports = 5
+		OracleClient\OracleClient\OracleClient.projitems*{363a96ca-8868-42f1-acf6-4c6cc1ddd935}*SharedItemsImports = 13
+		_Base\DbClientCommon\DbClientCommon.projitems*{766154b6-6dd9-4b2f-a04e-7957f5c19ca9}*SharedItemsImports = 13
+		MySqlClient\MySqlClient\MySqlClient.projitems*{943d3743-5e61-4c1c-8dec-e2c64aaa9154}*SharedItemsImports = 5
+		_Base\DbClientCommon\DbClientCommon.projitems*{943d3743-5e61-4c1c-8dec-e2c64aaa9154}*SharedItemsImports = 5
+		SqlServerClient\SqlServerClient\SqlServerClient.projitems*{95cce6ee-7c5e-4962-ae7e-db151eace53d}*SharedItemsImports = 13
+		SqlServerClient\SqlServerClient\SqlServerClient.projitems*{b2eac1d3-9119-49bb-ae88-b268c84f4cc4}*SharedItemsImports = 5
+		_Base\DbClientCommon\DbClientCommon.projitems*{b2eac1d3-9119-49bb-ae88-b268c84f4cc4}*SharedItemsImports = 5
+		MySqlClient\MySqlClient\MySqlClient.projitems*{c15e578d-2dda-4498-a7e8-810226605b8a}*SharedItemsImports = 13
+	EndGlobalSection
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{943D3743-5E61-4C1C-8DEC-E2C64AAA9154}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{943D3743-5E61-4C1C-8DEC-E2C64AAA9154}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{943D3743-5E61-4C1C-8DEC-E2C64AAA9154}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{943D3743-5E61-4C1C-8DEC-E2C64AAA9154}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2ED7D045-FE3D-4662-B33E-AF6DA5299A0A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2ED7D045-FE3D-4662-B33E-AF6DA5299A0A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2ED7D045-FE3D-4662-B33E-AF6DA5299A0A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2ED7D045-FE3D-4662-B33E-AF6DA5299A0A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B2EAC1D3-9119-49BB-AE88-B268C84F4CC4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B2EAC1D3-9119-49BB-AE88-B268C84F4CC4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B2EAC1D3-9119-49BB-AE88-B268C84F4CC4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B2EAC1D3-9119-49BB-AE88-B268C84F4CC4}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{F985D935-E07F-48F7-B94B-2DC16DB1421C} = {1312CDF1-A629-46F0-8B67-53837761843B}
+		{E402E442-6461-48E7-B433-40C4B82FFAE4} = {EB5AC32B-A975-4217-B627-0772A995C1BE}
+		{766154B6-6DD9-4B2F-A04E-7957F5C19CA9} = {47DB9348-471C-4D54-954B-4863DFEBFBAB}
+		{943D3743-5E61-4C1C-8DEC-E2C64AAA9154} = {E402E442-6461-48E7-B433-40C4B82FFAE4}
+		{1D72F064-E17D-4C35-821E-2CB8FEB70ABA} = {2014F706-98AE-4E47-9E1F-AE8CC5792E60}
+		{363A96CA-8868-42F1-ACF6-4C6CC1DDD935} = {2014F706-98AE-4E47-9E1F-AE8CC5792E60}
+		{C15E578D-2DDA-4498-A7E8-810226605B8A} = {EB5AC32B-A975-4217-B627-0772A995C1BE}
+		{2ED7D045-FE3D-4662-B33E-AF6DA5299A0A} = {1D72F064-E17D-4C35-821E-2CB8FEB70ABA}
+		{B2EAC1D3-9119-49BB-AE88-B268C84F4CC4} = {F985D935-E07F-48F7-B94B-2DC16DB1421C}
+		{95CCE6EE-7C5E-4962-AE7E-DB151EACE53D} = {1312CDF1-A629-46F0-8B67-53837761843B}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {6562B128-7E66-4327-BED6-D2109CA68E8B}
+	EndGlobalSection
+EndGlobal
