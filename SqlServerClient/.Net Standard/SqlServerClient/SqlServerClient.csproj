@@ -10,7 +10,11 @@
     <PackageReference Include="System.Data.SqlClient" Version="4.8.2" />
   </ItemGroup>
 
-  <Import Project="..\..\..\_Base\DbClientCommon\DbClientCommon.projitems" Label="Shared" />
+  
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\_Base\DbClientCommon\DbClientCommon.csproj" />
+  </ItemGroup>
   <Import Project="..\..\SqlServerClient\SqlServerClient.projitems" Label="Shared" />
 
 </Project>

@@ -3,16 +3,22 @@ using System.Data.Common;
 
 namespace DbClientCommon
 {
-    abstract public class DbClientBase
-        <TDbConnectionStringBuilder, TDbConnection, TDbCommand, TDbDataAdapter>
-        where TDbConnectionStringBuilder : DbConnectionStringBuilder
+
+    public class DbClientBase
+        <TDbConnection, TDbCommand, TDbDataAdapter>
+        : DbClientBase_Interface
         where TDbConnection : DbConnection, new()
         where TDbCommand : DbCommand, new()
         where TDbDataAdapter : DbDataAdapter, new()
     {
 
-        protected abstract TDbConnectionStringBuilder ConnectionStringBuilder { get; }
+        public DbClientBase() { }
 
+        string ConnectionString { set; get; }
+        public void Init(string connectionString)
+        {
+            ConnectionString = connectionString;
+        }
 
         protected delegate object Delegate_Connection(TDbConnection Connection);
         protected object ConnectionProcess(object para, Delegate_Connection delegate_Connection)
@@ -21,7 +27,7 @@ namespace DbClientCommon
 
             using (var Connection = new TDbConnection())
             {
-                Connection.ConnectionString = ConnectionStringBuilder.ToString();
+                Connection.ConnectionString = ConnectionString;
 
                 Connection.Open();
 
@@ -116,4 +122,5 @@ namespace DbClientCommon
         }
 
     }
+
 }

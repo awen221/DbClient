@@ -3,8 +3,5 @@ using Oracle.ManagedDataAccess.Client;
 
 namespace OracleClient
 {
-    abstract public class OracleClient_Base : DbClientBase
-        <OracleConnectionStringBuilder, OracleConnection, OracleCommand, OracleDataAdapter>
-    {
-    }
+    public class OracleClient_Base : DbClientBase<OracleConnection, OracleCommand, OracleDataAdapter> { }
 }

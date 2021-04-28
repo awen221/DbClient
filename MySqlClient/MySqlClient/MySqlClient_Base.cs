@@ -4,8 +4,5 @@ using DbClientCommon;
 
 namespace MySqlClient
 {
-    abstract public class MySqlClient_Base: DbClientBase
-        <MySqlConnectionStringBuilder, MySqlConnection, MySqlCommand, MySqlDataAdapter>
-    {
-    }
+    public class MySqlClient_Base : DbClientBase<MySqlConnection, MySqlCommand, MySqlDataAdapter> { }
 }
