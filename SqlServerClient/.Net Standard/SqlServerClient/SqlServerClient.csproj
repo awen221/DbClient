@@ -13,7 +13,7 @@
   
 
   <ItemGroup>
-    <ProjectReference Include="..\..\..\_Base\DbClientCommon\DbClientCommon.csproj" />
+    <ProjectReference Include="..\..\..\_Base\DbClient\DbClient.csproj" />
   </ItemGroup>
   <Import Project="..\..\SqlServerClient\SqlServerClient.projitems" Label="Shared" />
 

@@ -9,6 +9,6 @@
     <Import_RootNamespace>MySqlClient</Import_RootNamespace>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="$(MSBuildThisFileDirectory)MySqlClient_Base.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)MySqlClient.cs" />
   </ItemGroup>
 </Project>

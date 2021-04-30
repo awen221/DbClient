@@ -9,6 +9,6 @@
     <Import_RootNamespace>SqlServerClient</Import_RootNamespace>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="$(MSBuildThisFileDirectory)SqlServerClient_Base.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)SqlServerClient.cs" />
   </ItemGroup>
 </Project>

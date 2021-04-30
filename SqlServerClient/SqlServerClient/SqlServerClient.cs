@@ -2,15 +2,15 @@
 
 using System.Data.SqlClient;
 
-using DbClientCommon;
+using DbClient;
 
 namespace SqlServerClient
 {
-    public class SqlServerClient_Base : DbClientBase<SqlConnection, SqlCommand, SqlDataAdapter>
+    public class SqlServerClient : DbClient<SqlConnection, SqlCommand, SqlDataAdapter>
     {
-        public void SqlBulkCopy_WriteToServer(string destinationTableName, DataTable dataTable)
+        public void SqlBulkCopy_WriteToServer(string connectionString, string destinationTableName, DataTable dataTable)
         {
-            ConnectionProcess(destinationTableName, delegate (SqlConnection sqlConnection)
+            ConnectionProcess(connectionString, destinationTableName, delegate (SqlConnection sqlConnection)
             {
                 using (SqlBulkCopy sqlBulkCopy = new SqlBulkCopy(sqlConnection))
                 {

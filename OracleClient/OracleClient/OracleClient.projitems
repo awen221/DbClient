@@ -9,6 +9,6 @@
     <Import_RootNamespace>OracleClient</Import_RootNamespace>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="$(MSBuildThisFileDirectory)OracleClient_Base.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)OracleClient.cs" />
   </ItemGroup>
 </Project>
