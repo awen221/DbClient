@@ -8,9 +8,9 @@ namespace SqlServerClient
 {
     public class SqlServerClient : DbClient<SqlConnection, SqlCommand, SqlDataAdapter>
     {
-        public void SqlBulkCopy_WriteToServer(string connectionString, string destinationTableName, DataTable dataTable)
+        public void SqlBulkCopy_WriteToServer(string connectString, string destinationTableName, DataTable dataTable)
         {
-            ConnectionProcess(connectionString, destinationTableName, delegate (SqlConnection sqlConnection)
+            ConnectionProcess(connectString, destinationTableName, delegate (SqlConnection sqlConnection)
             {
                 using (SqlBulkCopy sqlBulkCopy = new SqlBulkCopy(sqlConnection))
                 {

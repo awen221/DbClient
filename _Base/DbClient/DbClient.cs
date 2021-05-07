@@ -10,13 +10,13 @@ namespace DbClient
         where TDbDataAdapter : DbDataAdapter, new()
     {
         protected delegate object Delegate_Connection(TDbConnection Connection);
-        protected object ConnectionProcess(string connectionString, object para, Delegate_Connection delegate_Connection)
+        protected object ConnectionProcess(string connectString, object para, Delegate_Connection delegate_Connection)
         {
             object result = null;
 
             using (var Connection = new TDbConnection())
             {
-                Connection.ConnectionString = connectionString;
+                Connection.ConnectionString = connectString;
 
                 Connection.Open();
 
@@ -32,9 +32,9 @@ namespace DbClient
         }
 
         protected delegate object Delegate_Command(TDbCommand Command);
-        protected object CommandProcess(string connectionString, string commandText, Delegate_Command delegate_Command)
+        protected object CommandProcess(string connectString, string commandText, Delegate_Command delegate_Command)
         {
-            return ConnectionProcess(connectionString, commandText, delegate (TDbConnection Connection)
+            return ConnectionProcess(connectString, commandText, delegate (TDbConnection Connection)
             {
                 object result = null;
                 using (var Command = new TDbCommand())
@@ -53,9 +53,9 @@ namespace DbClient
 
 
         protected delegate object Delegate_DataAdapter(TDbDataAdapter DataAdapter);
-        protected object DataAdapterProcess(string connectionString, string commandText, Delegate_DataAdapter delegate_DataAdapter)
+        protected object DataAdapterProcess(string connectString, string commandText, Delegate_DataAdapter delegate_DataAdapter)
         {
-            return CommandProcess(connectionString, commandText, delegate (TDbCommand Command)
+            return CommandProcess(connectString, commandText, delegate (TDbCommand Command)
             {
                 object result = null;
                 using (var DataAdapter = new TDbDataAdapter())
@@ -72,9 +72,9 @@ namespace DbClient
 
 
 
-        public object DataAdapter_Fill_DataTable(string connectionString, string commandText)
+        public object DataAdapter_Fill_DataTable(string connectString, string commandText)
         {
-            var result = DataAdapterProcess(connectionString, commandText, delegate (TDbDataAdapter DataAdapter)
+            var result = DataAdapterProcess(connectString, commandText, delegate (TDbDataAdapter DataAdapter)
             {
                 var data = new DataTable();
                 DataAdapter.Fill(data);
@@ -83,9 +83,9 @@ namespace DbClient
 
             return (DataTable)result;
         }
-        public object DataAdapter_Fill_DataSet(string connectionString, string commandText)
+        public object DataAdapter_Fill_DataSet(string connectString, string commandText)
         {
-            var result = DataAdapterProcess(connectionString, commandText, delegate (TDbDataAdapter DataAdapter)
+            var result = DataAdapterProcess(connectString, commandText, delegate (TDbDataAdapter DataAdapter)
             {
                 var data = new DataSet();
                 DataAdapter.Fill(data);
@@ -94,9 +94,9 @@ namespace DbClient
 
             return (DataSet)result;
         }
-        public object DataReader_HasRows(string connectionString, string commandText)
+        public object DataReader_HasRows(string connectString, string commandText)
         {
-            return (bool)CommandProcess(connectionString, commandText, delegate (TDbCommand Command)
+            return (bool)CommandProcess(connectString, commandText, delegate (TDbCommand Command)
             {
                 using (var DataReader = Command.ExecuteReader())
                 {
@@ -104,9 +104,9 @@ namespace DbClient
                 }
             });
         }
-        public object ExecuteNonQuery(string connectionString, string commandText)
+        public object ExecuteNonQuery(string connectString, string commandText)
         {
-            return (int)CommandProcess(connectionString, commandText, delegate (TDbCommand Command)
+            return (int)CommandProcess(connectString, commandText, delegate (TDbCommand Command)
             {
                 return Command.ExecuteNonQuery();
             });
