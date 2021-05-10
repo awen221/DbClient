@@ -3,20 +3,19 @@ using System.Data.Common;
 
 namespace DbClient
 {
-    public class DbClient <TDbConnection, TDbCommand, TDbDataAdapter>
-        : Db_interface
+    public class DbClient <TDbConnection, TDbCommand, TDbDataAdapter> : Db_interface
         where TDbConnection : DbConnection, new()
         where TDbCommand : DbCommand, new()
         where TDbDataAdapter : DbDataAdapter, new()
     {
         protected delegate object Delegate_Connection(TDbConnection Connection);
-        protected object ConnectionProcess(string connectString, object para, Delegate_Connection delegate_Connection)
+        protected object ConnectionProcess(string ConnectionString, object para, Delegate_Connection delegate_Connection)
         {
             object result = null;
 
             using (var Connection = new TDbConnection())
             {
-                Connection.ConnectionString = connectString;
+                Connection.ConnectionString = ConnectionString;
 
                 Connection.Open();
 
@@ -32,14 +31,14 @@ namespace DbClient
         }
 
         protected delegate object Delegate_Command(TDbCommand Command);
-        protected object CommandProcess(string connectString, string commandText, Delegate_Command delegate_Command)
+        protected object CommandProcess(string ConnectionString, string CommandText, Delegate_Command delegate_Command)
         {
-            return ConnectionProcess(connectString, commandText, delegate (TDbConnection Connection)
+            return ConnectionProcess(ConnectionString, CommandText, delegate (TDbConnection Connection)
             {
                 object result = null;
                 using (var Command = new TDbCommand())
                 {
-                    Command.CommandText = commandText;
+                    Command.CommandText = CommandText;
                     Command.Connection = Connection;
 
                     if (delegate_Command != null)
@@ -53,9 +52,9 @@ namespace DbClient
 
 
         protected delegate object Delegate_DataAdapter(TDbDataAdapter DataAdapter);
-        protected object DataAdapterProcess(string connectString, string commandText, Delegate_DataAdapter delegate_DataAdapter)
+        protected object DataAdapterProcess(string ConnectionString, string CommandText, Delegate_DataAdapter delegate_DataAdapter)
         {
-            return CommandProcess(connectString, commandText, delegate (TDbCommand Command)
+            return CommandProcess(ConnectionString, CommandText, delegate (TDbCommand Command)
             {
                 object result = null;
                 using (var DataAdapter = new TDbDataAdapter())
@@ -72,31 +71,27 @@ namespace DbClient
 
 
 
-        public object DataAdapter_Fill_DataTable(string connectString, string commandText)
+        public DataTable DataAdapter_Fill_DataTable(string ConnectionString, string CommandText)
         {
-            var result = DataAdapterProcess(connectString, commandText, delegate (TDbDataAdapter DataAdapter)
+            return (DataTable)DataAdapterProcess(ConnectionString, CommandText, delegate (TDbDataAdapter DataAdapter)
             {
                 var data = new DataTable();
                 DataAdapter.Fill(data);
                 return data;
             });
-
-            return (DataTable)result;
         }
-        public object DataAdapter_Fill_DataSet(string connectString, string commandText)
+        public DataSet DataAdapter_Fill_DataSet(string ConnectionString, string CommandText)
         {
-            var result = DataAdapterProcess(connectString, commandText, delegate (TDbDataAdapter DataAdapter)
+            return (DataSet)DataAdapterProcess(ConnectionString, CommandText, delegate (TDbDataAdapter DataAdapter)
             {
                 var data = new DataSet();
                 DataAdapter.Fill(data);
                 return data;
             });
-
-            return (DataSet)result;
         }
-        public object DataReader_HasRows(string connectString, string commandText)
+        public bool DataReader_HasRows(string ConnectionString, string CommandText)
         {
-            return (bool)CommandProcess(connectString, commandText, delegate (TDbCommand Command)
+            return (bool)CommandProcess(ConnectionString, CommandText, delegate (TDbCommand Command)
             {
                 using (var DataReader = Command.ExecuteReader())
                 {
@@ -104,9 +99,9 @@ namespace DbClient
                 }
             });
         }
-        public object ExecuteNonQuery(string connectString, string commandText)
+        public int ExecuteNonQuery(string ConnectionString, string CommandText)
         {
-            return (int)CommandProcess(connectString, commandText, delegate (TDbCommand Command)
+            return (int)CommandProcess(ConnectionString, CommandText, delegate (TDbCommand Command)
             {
                 return Command.ExecuteNonQuery();
             });
