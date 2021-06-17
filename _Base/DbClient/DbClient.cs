@@ -3,7 +3,7 @@ using System.Data.Common;
 
 namespace DbClient
 {
-    public class DbClient <TDbConnection, TDbCommand, TDbDataAdapter> : Db_interface
+    public class DbClient <TDbConnection, TDbCommand, TDbDataAdapter> : IDb_interface
         where TDbConnection : DbConnection, new()
         where TDbCommand : DbCommand, new()
         where TDbDataAdapter : DbDataAdapter, new()
