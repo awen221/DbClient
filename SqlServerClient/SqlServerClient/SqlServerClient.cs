@@ -10,7 +10,7 @@ namespace SqlServerClient
     {
         public void SqlBulkCopy_WriteToServer(string ConnectionString, string destinationTableName, DataTable dataTable)
         {
-            ConnectionProcess(ConnectionString, destinationTableName, delegate (SqlConnection sqlConnection)
+            ConnectionProcess(ConnectionString, delegate (SqlConnection sqlConnection)
             {
                 using (SqlBulkCopy sqlBulkCopy = new SqlBulkCopy(sqlConnection))
                 {

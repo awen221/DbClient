@@ -9,7 +9,7 @@ namespace DbClient
         where TDbDataAdapter : DbDataAdapter, new()
     {
         protected delegate object Delegate_Connection(TDbConnection Connection);
-        protected object ConnectionProcess(string ConnectionString, object para, Delegate_Connection delegate_Connection)
+        protected object ConnectionProcess(string ConnectionString, Delegate_Connection delegate_Connection)
         {
             object result = null;
 
@@ -33,7 +33,7 @@ namespace DbClient
         protected delegate object Delegate_Command(TDbCommand Command);
         protected object CommandProcess(string ConnectionString, string CommandText, Delegate_Command delegate_Command)
         {
-            return ConnectionProcess(ConnectionString, CommandText, delegate (TDbConnection Connection)
+            return ConnectionProcess(ConnectionString, delegate (TDbConnection Connection)
             {
                 object result = null;
                 using (var Command = new TDbCommand())
